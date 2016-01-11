@@ -16,6 +16,9 @@ class Customer
     # Allows a customer to "purchase" a product; generates a new transaction and adds the purchase to the customer's purchase history array
     def purchase(product)
         transaction = Transaction.new(self, product)
+    end
+
+    def add_purchase(transaction)
         @purchases << transaction
     end
 

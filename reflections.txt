@@ -1,0 +1,14 @@
+Q: How long to do this project? 
+A: About 1-2 hours
+
+Q: What was the most rewarding challenge you conquered?
+A: Definitely when I figured out that my Customers class was acting up because I didn't use an options hash. That drove me nuts!
+
+Q: What two additional features did you add? Why?
+A: The first feature I added was purchases history. It allows the user to search for a customer's purchase history and see any purchase they were involved with. The second feature I added was a timestamp to transactions so that the toystore could point to when a customer bought a product if there are questions.
+
+Q: Where do you still have room to grow?
+A: Definitely need to keep working on being dilligent when coding to avoid making silly mistakes. Super annoying to go back and debug because I wasn't paying full attention to my coding.
+
+Thanks for reviewing!
+Mike

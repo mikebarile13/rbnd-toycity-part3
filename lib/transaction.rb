@@ -12,6 +12,7 @@ class Transaction
         @@max_id += 1
         @timestamp = Time.now
         add_to_transactions
+        customer.add_purchase(self)
     end
 
     #Returns an array of all Toy City transactions
