@@ -6,7 +6,11 @@ class Customer
     def initialize(name)
       @name = name
       @purchases = []
-      add_to_customers
+      if Customer.customer_exists?(@name)
+        raise DuplicateCustomerError, "'#{@name}' already exists"
+      else
+        add_to_customers
+      end
     end
 
     # Allows a customer to "purchase" a product; generates a new transaction and adds the purchase to the customer's purchase history array
@@ -23,11 +27,13 @@ class Customer
   	# Returns a single product based on its title
   	def self.find_by_name(name)
       searched_name = @@customers.find{|customer| customer.name == name}
-      if searched_name = null
-        raise MissingTitleError, "'#{name}' is not the name of a customer."
-      else 
-        searched_name
-      end 
+    end
+
+    # Checks to see if a customer is already in the database
+    def self.customer_exists?(name)
+      exists = false
+      @@customers.each{|customer| if customer.name == name then exists = true end}
+      exists
     end
 
   	private

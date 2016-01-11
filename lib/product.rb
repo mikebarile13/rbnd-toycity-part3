@@ -8,14 +8,14 @@ class Product
     	@price = options[:price]
     	@stock = options[:stock]
     	if Product.product_exists?(@title)
-    		raise DuplicateProductError, "This product already exists"
+    		raise DuplicateProductError, "'#{@title}' already exists"
     	else
     		add_to_products
     	end
 	end
 
   	# Returns true if the product is in stock i.e. stock > 0
-  	def instock?
+  	def in_stock?
   		if stock > 0 
   			TRUE
   		else 
@@ -32,6 +32,7 @@ class Product
   		end
   	end
 
+  	# Returns an array including all products
   	def self.all
     	@@products
   	end
