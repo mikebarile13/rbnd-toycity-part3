@@ -24,10 +24,11 @@ class Customer
   	def self.find_by_name(name)
       searched_name = @@customers.find{|customer| customer.name == name}
       if searched_name = null
-        raise MissingTitleError '\'#{name}\' is not the name of a customer.'
+        raise MissingTitleError, "'#{name}' is not the name of a customer."
       else 
         searched_name
       end 
+    end
 
   	private
 

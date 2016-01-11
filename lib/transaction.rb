@@ -22,7 +22,7 @@ class Transaction
     def self.find(id)
       searched_id = @@transactions.find{|transaction| transaction.id == id}
       if searched_id = null
-        raise MissingTransactionError 'Transaction \'#{id}\' is not in our records.'
+        raise MissingTransactionError, "Transaction '#{id}' is not in our records."
       else 
         searched_id
       end 

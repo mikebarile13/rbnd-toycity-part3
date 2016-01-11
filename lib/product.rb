@@ -7,8 +7,8 @@ class Product
     	@title = options[:title]
     	@price = options[:price]
     	@stock = options[:stock]
-    	if find_by_title(@title) != null
-    		raise DuplicateProductError 'This product already exists'
+    	if Product.product_exists?(@title)
+    		raise DuplicateProductError, "This product already exists"
     	else
     		add_to_products
     	end
@@ -28,7 +28,7 @@ class Product
   		if @stock > 0
   			then @stock -= 1
   		else 
-  			raise OutOfStockError '\'#{@title}\' is out of stock.'
+  			raise OutOfStockError, "'#{@title}' is out of stock."
   		end
   	end
 
@@ -39,11 +39,13 @@ class Product
   	# Returns a single product based on its title
   	def self.find_by_title(title)
   		searched_product = @@products.find{|product| product.title == title}
-  		if searched_product = null
-  			raise MissingTitleError '\'#{@title}\' is not the name of a product.'
-  		else 
-  			searched_product
-  		end
+  	end
+
+  	# Returns a single product based on its title
+  	def self.product_exists?(title)
+  		exists = false
+  		@@products.each{|product| if product.title == title then exists = true end}
+  		exists
   	end
 
   	# Returns an array with all in-stock products
