@@ -5,9 +5,9 @@ class Transaction
     @@max_id = 1
 
     def initialize(customer, product)
+      product.decrease_stock
       @customer = customer
       @product = product
-      product.decrease_stock
       @id = max_id 
       @@max_id += 1
       add_to_transactions
@@ -18,10 +18,15 @@ class Transaction
       @@transactions
   	end
 
-  	#Returns a single product based on its title
-  	def self.find_by_name(name)
-  		#FILL THIS IN
-  	end
+    # Returns a single transaction based on id paramater
+    def self.find(id)
+      searched_id = @@transactions.find{|transaction| transaction.id == id}
+      if searched_id = null
+        raise MissingTransactionError 'Transaction \'#{id}\' is not in our records.'
+      else 
+        searched_id
+      end 
+    end 
 
   	private
 

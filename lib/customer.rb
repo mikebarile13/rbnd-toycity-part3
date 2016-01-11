@@ -22,8 +22,12 @@ class Customer
 
   	# Returns a single product based on its title
   	def self.find_by_name(name)
-  		#FILL THIS IN
-  	end
+      searched_name = @@customers.find{|customer| customer.name == name}
+      if searched_name = null
+        raise MissingTitleError '\'#{name}\' is not the name of a customer.'
+      else 
+        searched_name
+      end 
 
   	private
 
