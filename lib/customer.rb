@@ -19,6 +19,10 @@ class Customer
         @purchases << transaction
     end
 
+    def get_purchases
+        @purchases
+    end
+
     # Returns an array with all customers
     def self.all
         @@customers
