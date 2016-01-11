@@ -19,10 +19,6 @@ class Customer
         @purchases << transaction
     end
 
-    def get_purchases
-        @purchases
-    end
-
     # Returns an array with all customers
     def self.all
         @@customers
@@ -38,6 +34,12 @@ class Customer
         exists = false
         @@customers.each{|customer| if customer.name == name then exists = true end}
         exists
+    end
+
+
+    def self.get_purchases(name)
+        searched_name = @@customers.find{|customer| customer.name == name}
+        searched_name.purchases
     end
 
   	private

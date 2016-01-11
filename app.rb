@@ -64,3 +64,9 @@ transaction2.product == nanoblock # Should return true
 
 walter.purchase(firehouse)
 #Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+
+#Shows timestamp for transaction w/ ID 1
+Transaction.get_timestamp(1)
+
+#Shows purchase history for customer with name "Walter Latimer"
+Customer.get_purchases("Walter Latimer")

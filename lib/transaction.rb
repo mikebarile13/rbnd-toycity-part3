@@ -25,7 +25,7 @@ class Transaction
     end 
 
     # Returns the timestamp for the input id
-    def get_timestamp(id)
+    def self.get_timestamp(id)
         searched_id = @@transactions.find{|transaction| transaction.id == id}
         searched_id.timestamp
     end
