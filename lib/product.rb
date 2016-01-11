@@ -17,6 +17,14 @@ class Product
   		else return FALSE 
   	end
 
+  	#Decreases a product's stock. Passes an error if stock = 0. 
+  	def decrease_stock
+  		if @stock > 0
+  			then @stock -= 1
+  		else 
+  			raise OutOfStockError 'Cannot product transaction as product is out of stock'
+  	end
+
   	def self.all
     	@@products
   	end
