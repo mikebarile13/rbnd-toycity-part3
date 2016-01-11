@@ -3,8 +3,8 @@ class Customer
 
     @@customers = []
 
-    def initialize(name)
-        @name = name
+    def initialize(options={})
+        @name = options[:name]
         @purchases = []
         if Customer.customer_exists?(@name)
             raise DuplicateCustomerError, "'#{@name}' already exists"

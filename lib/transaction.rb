@@ -8,7 +8,7 @@ class Transaction
       product.decrease_stock
       @customer = customer
       @product = product
-      @id = max_id 
+      @id = @@max_id 
       @@max_id += 1
       add_to_transactions
     end
